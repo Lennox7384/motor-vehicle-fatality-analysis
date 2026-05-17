@@ -4,8 +4,8 @@ A Python port of a 2023 state-level investigative analysis. The original work wa
 
 **Read the rendered work directly:**
 
-- [Read the analysis](analysis.html): full notebook with code, plots, and findings, no Python install needed.
-- [Open the original 2023 report (PDF)](docs/original_report.pdf): the polished narrative version of the analysis.
+- [Read the analysis](https://lennox7384.github.io/motor-vehicle-fatality-analysis/analysis.html): full notebook with code, plots, and findings, no Python install needed.
+- [Open the original 2023 report (PDF)](https://lennox7384.github.io/motor-vehicle-fatality-analysis/docs/original_report.pdf): the polished narrative version of the analysis.
 
 ## Question
 
@@ -27,11 +27,11 @@ The response variable is the long-run state-level fatality rate per 100,000 resi
 
 ## Method
 
-Simple linear regression and Pearson correlation for each predictor against the response, followed by a Z-score composite of the two strongest predictors and a multivariate OLS model with all four predictors. Statsmodels for inference, matplotlib for plots, scipy.stats for correlations.
+Simple linear regression and Pearson correlation for each predictor against the response, followed by a joint OLS regression on the two strongest predictors and a multivariate OLS model with all four predictors. Statsmodels for inference, matplotlib for plots, scipy.stats for correlations.
 
 ## Headline findings
 
-The strongest single predictor is average miles per driver (r = 0.66). Pickup truck share is a moderate secondary signal (r = 0.45) that overlaps with the rural-state pattern. Raw police count is uninformative without per-capita normalisation. Alcohol consumption per capita correlates weakly negatively, likely picking up urbanisation and tourism inflows rather than risky driving behaviour. The Z-score composite of miles-per-driver and pickup-truck share is the strongest predictor overall (r = 0.70, R² = 0.50). See `analysis.html` for the full discussion.
+The strongest single predictor is average miles per driver (r = 0.6640, R² = 0.4409). Pickup truck share is a moderate secondary signal (r = 0.4487, R² = 0.2014) that overlaps with the rural-state pattern. Raw police count is uninformative without per-capita normalisation. Alcohol consumption per capita correlates weakly negatively, likely picking up urbanisation and tourism inflows rather than risky driving behaviour. Jointly modelling miles-per-driver with pickup-truck share gives R² = 0.4959, the strongest model overall. See `analysis.html` for the full discussion.
 
 ## Files
 
